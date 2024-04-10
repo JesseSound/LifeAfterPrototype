@@ -10,15 +10,18 @@ public class EnemyAI : MonoBehaviour
 
 
 
-     public Transform target;
+    public Transform target;
     public float forwardVectorComparison;
     public Animator anim;
     public float rotationSpeed = 5f;
-    public ThirdPersonController moveDetect; 
+    public ThirdPersonController moveDetect;
 
+    Vector3 originalTransform;
+    bool angered = false;
+    bool seen = false;
 
-    public bool angered = false;
-    public bool seen = false;
+    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,14 +41,25 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        angered = false;
+        seen = false;
+        originalTransform = transform.position;
     }
+
+
+
 
     // Update is called once per frame
     void Update()
     {
+
+        float distance = Vector3.Distance(transform.position, target.position);
+
+
         if (target != null && seen)
         {
+            Debug.Log(angered);
+            Debug.Log(distance);
             // Get the direction to the target object
             Vector3 targetDirection = (target.position - transform.position).normalized;
             //targetDirection.y = 0f; // Lock rotation to Y-axis
@@ -60,28 +74,40 @@ public class EnemyAI : MonoBehaviour
 
             forwardVectorComparison = Vector3.Dot(target.transform.forward.normalized, transform.forward.normalized);
 
-            if(forwardVectorComparison <= -0.97f && moveDetect.isMoving)
+            if (forwardVectorComparison <= -0.917f && moveDetect.isMoving)
             {
                 Debug.Log("BEEP");
                 angered = true;
+              
+        
+               
             }
-            else
-            {
-                angered = false;
-            }
-
             if (angered)
             {
-                
-                transform.position += targetDirection * 1.0f * Time.deltaTime;
                 anim.SetFloat("MotionSpeed", 2.0f);
-                anim.SetFloat("Speed", 2.0f);
+                anim.SetFloat("Speed", 3.0f);
+                transform.position += targetDirection * 2.0f * Time.deltaTime;
             }
             else
             {
+                
                 anim.SetFloat("MotionSpeed", 0.0f);
                 anim.SetFloat("Speed", 0.0f);
+                
             }
+
+            
         }
     }
+
+    public IEnumerator AngerReset()
+    {
+
+
+        yield return new WaitForSeconds(3.0f);
+        anim.SetFloat("MotionSpeed", 0.0f);
+        anim.SetFloat("Speed", 0.0f);
+        angered = false;
+    }
+
 }
