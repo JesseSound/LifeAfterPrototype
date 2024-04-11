@@ -1,6 +1,7 @@
 ﻿title: StartNpc
 tags:
 ---
+press f to advance dialogue
 Random Student: Thank God you're here!
 Random Student: There are a few students around who need help...
 Random Student: You'll have to find them and talk to them.
@@ -16,7 +17,8 @@ title: NPC
 tags:
 ---
 <<declare $studentCount = 0 >>
-Random Student: Good Luck!
+Random Student: Good Luck! Thanks A lot! You're killing it!
+Random Student: Hold up... don't forget the rest!
 How many students are left? sigh...
 <<set $studentCount += 1>>
 Looks like I've saved at LEAST {$studentCount} so far... 

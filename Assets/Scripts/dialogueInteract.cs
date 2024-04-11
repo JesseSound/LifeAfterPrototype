@@ -44,7 +44,7 @@ public class dialogueInteract : MonoBehaviour
         if (canInteract && !dialogueRunner.IsDialogueRunning && Input.GetKey(KeyCode.E))
             dialogueRunner.StartDialogue(gameObject.name);
 
-        if (dialogueRunner.IsDialogueRunning && Input.GetKeyDown(KeyCode.E)) { 
+        if (dialogueRunner.IsDialogueRunning && Input.GetKeyDown(KeyCode.F)) { 
             lineView.UserRequestedViewAdvancement();
 
         }

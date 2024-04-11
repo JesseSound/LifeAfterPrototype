@@ -7,7 +7,7 @@ public class ExitManager : MonoBehaviour
 {
 
     VariableStorageBehaviour yarnVariables;
-    int studentsSaved = 0;
+    float studentsSaved = 0;
     public GameObject exit;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,9 @@ public class ExitManager : MonoBehaviour
     {
         yarnVariables.TryGetValue("$studentCount", out studentsSaved);
 
-        if (studentsSaved >= 5)
+        Debug.Log(studentsSaved);
+
+        if (studentsSaved >= 5.0f)
         {
             exit.SetActive(false);
         }
