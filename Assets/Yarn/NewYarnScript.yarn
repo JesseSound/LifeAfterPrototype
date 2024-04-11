@@ -5,7 +5,19 @@ Random Student: Thank God you're here!
 Random Student: There are a few students around who need help...
 Random Student: You'll have to find them and talk to them.
 Random Student: Problem is.. some students seem... strange.
-Random Student:  If you walk right at them, they freak out and start chasing you down!
+Random Student:  If you walk right at them, they freak out and start chasing you down! But only if you move right at themm
 Random Student: So I guess you'll have to avoid them somehow... 
+Random Student: And it'll be impossible to tell who's who until you walk right up to them...
 Random Student: Good Luck!
+===
+
+
+title: NPC
+tags:
+---
+<<declare $studentCount = 0 >>
+Random Student: Good Luck!
+How many students are left? sigh...
+<<set $studentCount += 1>>
+Looks like I've saved at LEAST {$studentCount} so far... 
 ===
