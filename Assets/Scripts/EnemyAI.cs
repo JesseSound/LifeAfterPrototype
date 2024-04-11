@@ -15,12 +15,12 @@ public class EnemyAI : MonoBehaviour
     public Animator anim;
     public float rotationSpeed = 5f;
     public ThirdPersonController moveDetect;
-
-    Vector3 originalTransform;
-    bool angered = false;
+    public bool playerTP = false; //tp the player in third person controller
+    
+   public bool angered = false;
     bool seen = false;
 
-    
+    public Transform originalSpawn;
 
 
     private void OnTriggerEnter(Collider other)
@@ -29,21 +29,23 @@ public class EnemyAI : MonoBehaviour
         {
             seen = true;
             Debug.Log("yello");
+           
         }
     }
-
+    
 
 
     private void OnTriggerExit(Collider other)
     {
         seen = false;
+        angered = false;
     }
     // Start is called before the first frame update
     void Start()
     {
         angered = false;
         seen = false;
-        originalTransform = transform.position;
+        
     }
 
 
@@ -58,8 +60,7 @@ public class EnemyAI : MonoBehaviour
 
         if (target != null && seen)
         {
-            Debug.Log(angered);
-            Debug.Log(distance);
+           
             // Get the direction to the target object
             Vector3 targetDirection = (target.position - transform.position).normalized;
             //targetDirection.y = 0f; // Lock rotation to Y-axis
@@ -78,36 +79,49 @@ public class EnemyAI : MonoBehaviour
             {
                 Debug.Log("BEEP");
                 angered = true;
-              
-        
-               
+
+            }
+            else if (!moveDetect.isMoving && forwardVectorComparison > -0.917f)
+            {
+                angered = false;
             }
             if (angered)
             {
+              //  StartCoroutine(Angered(targetDirection));
                 anim.SetFloat("MotionSpeed", 2.0f);
                 anim.SetFloat("Speed", 3.0f);
-                transform.position += targetDirection * 2.0f * Time.deltaTime;
+                transform.position += targetDirection * 1.5f * Time.deltaTime;
             }
             else
             {
                 
                 anim.SetFloat("MotionSpeed", 0.0f);
                 anim.SetFloat("Speed", 0.0f);
+                anim.StopPlayback();
                 
             }
-
+            if(distance < 1.0f && angered)
+            {
+                Debug.Log("Close!");
+                playerTP = true;
+            }
+            if(distance <3.0f && distance >1.0f)
+            {
+                Debug.Log("this range");
+            }
             
         }
     }
 
-    public IEnumerator AngerReset()
+    public IEnumerator Angered(Vector3 targetDirection)
     {
 
-
+        anim.SetFloat("MotionSpeed", 2.0f);
+        anim.SetFloat("Speed", 3.0f);
+        transform.position += targetDirection * 2.0f * Time.deltaTime;
+        
         yield return new WaitForSeconds(3.0f);
-        anim.SetFloat("MotionSpeed", 0.0f);
-        anim.SetFloat("Speed", 0.0f);
-        angered = false;
+      
     }
 
 }

@@ -17,7 +17,7 @@ namespace StarterAssets
 
         public bool isMoving = false;
 
-
+        public EnemyAI enemyAI;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -114,6 +114,10 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+
+
+        public Transform originalspawn;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -148,7 +152,7 @@ namespace StarterAssets
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
-
+            enemyAI = null;
             AssignAnimationIDs();
 
             // reset our timeouts on start
@@ -163,8 +167,24 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            if(enemyAI.playerTP)
+            {
+                enemyAI.playerTP = false;
+                transform.position = originalspawn.position;
+               
+            }
         }
-
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("enemy"))
+            {
+                enemyAI = other.GetComponent<EnemyAI>();
+            }
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            enemyAI = null;
+        }
         private void LateUpdate()
         {
             CameraRotation();

@@ -1129,6 +1129,9 @@ MonoBehaviour:
   anim: {fileID: 154036458}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &154036461
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1148,7 +1151,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.49
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &156007046
 PrefabInstance:
@@ -1436,6 +1439,9 @@ MonoBehaviour:
   anim: {fileID: 206400379}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &206400382
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2720,7 +2726,7 @@ PrefabInstance:
       objectReference: {fileID: 396898867}
     - target: {fileID: 8367198334792524960, guid: 2a7ef0a1ff4da8343b0d2d2c427a6422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.8
+      value: -16.669
       objectReference: {fileID: 0}
     - target: {fileID: 8367198334792524960, guid: 2a7ef0a1ff4da8343b0d2d2c427a6422, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2728,7 +2734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8367198334792524960, guid: 2a7ef0a1ff4da8343b0d2d2c427a6422, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.85
+      value: -10.783
       objectReference: {fileID: 0}
     - target: {fileID: 8367198334792524960, guid: 2a7ef0a1ff4da8343b0d2d2c427a6422, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2839,6 +2845,9 @@ MonoBehaviour:
   anim: {fileID: 386135565}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &386135568
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2858,7 +2867,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.49
+  m_Radius: 1.76
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &393102171 stripped
 GameObject:
@@ -3403,6 +3412,9 @@ MonoBehaviour:
   anim: {fileID: 446902508}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &446902511
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4192,6 +4204,9 @@ MonoBehaviour:
   anim: {fileID: 602737442}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &602737440
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4910,6 +4925,10 @@ PrefabInstance:
       propertyPath: TopClamp
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: originalspawn
+      value: 
+      objectReference: {fileID: 1290544179}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: LockCameraPosition
       value: 0
@@ -5795,6 +5814,9 @@ MonoBehaviour:
   anim: {fileID: 781717992}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &781717995
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7859,6 +7881,9 @@ MonoBehaviour:
   anim: {fileID: 1123530491}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1123530494
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8739,6 +8764,9 @@ MonoBehaviour:
   anim: {fileID: 1240199092}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1240199095
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8905,6 +8933,9 @@ MonoBehaviour:
   anim: {fileID: 1246542368}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1246542371
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12154,6 +12185,9 @@ MonoBehaviour:
   anim: {fileID: 1838206304}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1838206307
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12623,6 +12657,9 @@ MonoBehaviour:
   anim: {fileID: 1898938450}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1898938453
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13114,6 +13151,9 @@ MonoBehaviour:
   anim: {fileID: 1952059585}
   rotationSpeed: 5
   moveDetect: {fileID: 2011433966}
+  playerTP: 0
+  angered: 0
+  originalSpawn: {fileID: 1290544179}
 --- !u!135 &1952059588
 SphereCollider:
   m_ObjectHideFlags: 0
